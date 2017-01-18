@@ -38,6 +38,14 @@ bot.onText(/\/jung(h|H)elp/, function (msg) {
   BotHandler.onHelp(msg, bot);
 });
 
+bot.onText(/\/refresh(a|A)dmin/, function (msg) {
+  log.i('/refreshAdmin msg: ' + JSON.stringify(msg), process.env.DISABLE_LOGGING);
+  bot.getChatAdministrators(msg.chat.id).then(function (result) {
+    log.i('/refreshAdmin result: ' + JSON.stringify(result), process.env.DISABLE_LOGGING);
+    bot.sendMessage(msg.chat.id, JSON.stringify(result));
+  });
+});
+
 bot.on('message', function (msg) {
   BotHandler.onMessage(msg);
 });
