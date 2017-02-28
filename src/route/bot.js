@@ -1,3 +1,5 @@
+import log from 'log-to-file-and-console-node'
+
 export default class Bot {
 
   constructor (bot) {
@@ -6,6 +8,7 @@ export default class Bot {
 
   root () {
     return (req, res) => {
+      log.i(`req.body: ${JSON.stringify(req.body)}`)
       this.bot.processUpdate(req.body)
       res.sendStatus(200)
     }

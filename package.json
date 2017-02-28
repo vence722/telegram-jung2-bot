@@ -10,7 +10,7 @@
   "scripts": {
     "standard": "standard --fix",
     "build": "./node_modules/.bin/babel src -d build",
-    "start": "yarn build && node --use_strict ./build/bin/www.js",
+    "start": "yarn build && node ./build/bin/www.js",
     "test": "yarn standard && gulp",
     "populate-database": "node ./test/stress/tool/populateDatabase.js",
     "stress": "gulp stress",
