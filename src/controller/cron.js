@@ -37,6 +37,22 @@ export default class DebugController {
     })
   }
 
+  lunch () {
+	return new CronJob({
+		cronTime: c.CRON.LUNCH_PATTERN,
+		onTick: async () => {
+		  const chatIds = await messageController.getAllGroupIds()
+		  async.each(chatIds, async chatId => {
+			const msg = {chat: {id: chatId}}
+			this.bot.sendMessage(chatId, c.CRON.LUNCH)
+			const message = await messageController.getTopTen(msg, true)
+			if (!_.isEmpty(message)) { this.bot.sendMessage(chatId, message) }
+		  })
+		},
+		timeZone: c.CONFIG.TIMEZONE
+	  });
+  }
+
   cleanupJob () {
     return new CronJob({
       cronTime: c.CRON.DB_CLEANUP_PATTERN,
@@ -46,9 +62,11 @@ export default class DebugController {
   }
 
   startAllCronJobs () {
-    const offJob = this.offJob()
+	const offJob = this.offJob()
+	const lunch = this.lunch()
     const cleanupJob = this.cleanupJob()
-    offJob.start()
+	offJob.start()
+	lunch.start()
     cleanupJob.start()
   }
 }

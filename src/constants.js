@@ -5,13 +5,15 @@ export default Object.freeze({
     TIMEZONE: 'Asia/Hong_Kong'
   },
   MESSAGE: {
-    TOP_TEN_TITLE: 'Top 10 冗員s in the last 7 days (last 上水 time):\n\n',
-    ALL_JUNG_TITLE: 'All 冗員s in the last 7 days (last 上水 time):\n\n',
+    TOP_TEN_TITLE: 'Top 10 冗員s in the last 7 days (last 荃灣 time):\n\n',
+    ALL_JUNG_TITLE: 'All 冗員s in the last 7 days (last 荃灣 time):\n\n',
     LIMIT: 3800
   },
   CRON: {
     OFF_JOB: '夠鐘收工~~',
-    OFF_JOB_PATTERN: '00 00 18 * * 1-5',
+	OFF_JOB_PATTERN: '00 30 18 * * 1-5',
+	LUNCH: '夠鐘食飯~~',
+	LUNCH_PATTERN: '00 30 13 * * 1-5',
     DB_CLEANUP_PATTERN: '0 0 0-17,19-23 * * *'
   },
   HELP: {
@@ -27,9 +29,6 @@ export default Object.freeze({
     '/topten  show top ten 冗員s' + '\n' +
     '/alljung  show all 冗員s' + '\n' +
     '/junghelp  show help message' + '\n' +
-    '\n' +
-    'Issue/Suggestion: https://github.com/siutsin/telegram-jung2-bot/issues' + '\n' +
-    '\n' +
-    'May your 冗 power powerful -- Simon'
+    '\n'
   }
 })

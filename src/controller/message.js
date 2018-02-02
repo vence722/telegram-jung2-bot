@@ -94,7 +94,7 @@ export default class MessageController {
   async getJungMessage (msg, limit, force) {
     let message = limit ? c.MESSAGE.TOP_TEN_TITLE : c.MESSAGE.ALL_JUNG_TITLE
     try {
-      await usageController.isAllowCommand(msg, force)
+    //   await usageController.isAllowCommand(msg, force)
       const results = await Promise.all([
         usageController.addUsage(msg),
         this.getCountAndGetJung(msg, limit)

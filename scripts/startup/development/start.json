@@ -1,0 +1,14 @@
+[
+	{
+		"name": "jung2bot",
+		"script": "npm",
+		"args": "run start",
+		"log_date_format": "YYYY-MM-DD HH:mm:ss:SSS Z",
+		"env": {
+			"TELEGRAM_BOT_TOKEN": "506197258:AAGlJ_FSO3hbvtUp5WTw6X8-P-Jy3jAlWz8",
+			"MONGODB_URL": "127.0.0.1:27017/jung2botTest",
+			"MONGODB_CACHE_DO_URL": "127.0.0.1:27017/jung2botTestCache"
+		},
+		"exec_mode": "fork"
+	}
+]
